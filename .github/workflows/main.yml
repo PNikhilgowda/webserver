@@ -1,0 +1,21 @@
+name: main
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: docker:latest
+      
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t nags .
+        
+      - name: Run Docker container
+        run: docker run -d -p 8080:8080 nags
