@@ -19,3 +19,6 @@ jobs:
         
       - name: Run Docker container
         run: docker run -d -p 8080:8080 nags
+        
+      - name: Show Docker Images
+        run: docker images
