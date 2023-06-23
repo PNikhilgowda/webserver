@@ -32,7 +32,7 @@ jobs:
           
       - name: Build and tag Docker image
         run: |
-          docker tag webserver:latest 627172557595.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
+          docker tag nags:latest 627172557595.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
           
       - name: Log in to Amazon ECR
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 627172557595.dkr.ecr.us-east-1.amazonaws.com
