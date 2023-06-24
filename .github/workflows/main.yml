@@ -32,13 +32,10 @@ jobs:
           
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1   
+        uses: aws-actions/amazon-ecr-login@v1 
 
       - name: Tag Docker image
         run: docker tag nags 627172557595.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
-        
-      - name: Log in to Amazon ECR
-        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 627172557595.dkr.ecr.us-east-1.amazonaws.com
         
       - name: Push Docker image to ECR
         run: docker push 627172557595.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
