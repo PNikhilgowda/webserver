@@ -35,7 +35,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1 
 
       - name: Tag Docker image
-        run: docker tag nags.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
+        run: docker tag nags:latest public.ecr.aws/n8y3z0e0/webserver:latest
         
       - name: Push Docker image to ECR
         run: docker push public.ecr.aws/n8y3z0e0/webserver:latest
