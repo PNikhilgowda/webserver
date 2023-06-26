@@ -8,6 +8,7 @@ jobs:
   build:
     runs-on: 
       - label-1
+      - ubuntu-latest
     
     container:
       image: docker:latest
