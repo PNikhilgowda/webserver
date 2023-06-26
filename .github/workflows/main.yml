@@ -12,17 +12,8 @@ jobs:
       
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
-          
-      - name: Build Docker image
-        run: docker build -t nags .
+        uses: actions/checkout@v2   
         
-      - name: Run Docker container
-        run: docker run -d -p 8080:8080 nags
-        
-      - name: Show Docker Images
-        run: docker images   
-      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -39,9 +30,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}-${{steps.vars.outputs.stage}}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-      
-      - name: Tag Docker image
-        run: docker tag nags:latest.dkr.ecr.us-east-1.amazonaws.com/webserver:new 
-      
-      - name: Push Docker image to ECR
-        run: docker push public.ecr.aws/n8y3z0e0/webserver:new
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG3
