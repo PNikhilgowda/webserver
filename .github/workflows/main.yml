@@ -39,5 +39,3 @@ jobs:
         
       - name: Push Docker image to ECR
         run: docker push 627172557595.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
-        
-      
