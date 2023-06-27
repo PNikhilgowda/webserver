@@ -10,7 +10,7 @@ jobs:
       - label-1
     
     container:
-      image: docker:latest
+      image: docker:20.10.21
       
     steps:
       - name: Check out code
