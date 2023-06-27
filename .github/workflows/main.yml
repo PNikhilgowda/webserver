@@ -9,8 +9,8 @@ jobs:
     runs-on:
       - label-1
     
-    container:
-      image: docker:20.10.21
+#     container:
+#       image: docker:20.10.21
       
     steps:
       - name: Check out code
