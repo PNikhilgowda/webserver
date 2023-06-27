@@ -35,5 +35,4 @@ jobs:
       
       - name: Push Docker image to ECR
         run: docker push public.ecr.aws/n8y3z0e0/webserver:new
-        
-  
+    
