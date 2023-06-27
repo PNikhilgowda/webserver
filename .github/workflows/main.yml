@@ -10,7 +10,7 @@ jobs:
   build:
     
     name: Build Image
-    runs-on: ubuntu-latest
+    runs-on: label-1
 
    
     steps:
@@ -36,4 +36,4 @@ jobs:
         IMAGE_TAG: test_ml_image
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push public.ecr.aws/n8y3z0e0/exp-1:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
